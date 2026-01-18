@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('credits', newCredits.toString());
   };
 
-  const useCredits = (amount) => {
+  const spendCredits = (amount) => {
     if (credits >= amount) {
       const newCredits = credits - amount;
       setCredits(newCredits);
