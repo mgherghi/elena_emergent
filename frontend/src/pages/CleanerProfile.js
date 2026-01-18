@@ -75,10 +75,16 @@ export default function CleanerProfile() {
       setContactRevealed(true);
       setShowContactDialog(false);
       toast.success('Contact details revealed!');
-    } else if (useCredits(2)) {
-      setContactRevealed(true);
-      setShowContactDialog(false);
-      toast.success('Contact details revealed! 2 credits used.');
+    } else if (credits >= 2) {
+      const success = useCredits(2);
+      if (success) {
+        setContactRevealed(true);
+        setShowContactDialog(false);
+        toast.success('Contact details revealed! 2 credits used.');
+      } else {
+        toast.error('Insufficient credits. Please purchase more credits.');
+        navigate('/pricing');
+      }
     } else {
       toast.error('Insufficient credits. Please purchase more credits.');
       navigate('/pricing');
