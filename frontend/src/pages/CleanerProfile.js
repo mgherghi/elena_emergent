@@ -38,7 +38,7 @@ import { toast } from 'sonner';
 export default function CleanerProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isAuthenticated, credits, subscription, useCredits } = useAuth();
+  const { isAuthenticated, credits, subscription, spendCredits } = useAuth();
   const [showContactDialog, setShowContactDialog] = useState(false);
   const [showBookingDialog, setShowBookingDialog] = useState(false);
   const [bookingMessage, setBookingMessage] = useState('');
