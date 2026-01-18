@@ -23,7 +23,6 @@ export default function MessagingPage() {
     e.preventDefault();
     if (!messageText.trim()) return;
     
-    // Mock sending message
     console.log('Sending message:', messageText);
     setMessageText('');
   };
@@ -34,15 +33,13 @@ export default function MessagingPage() {
 
       <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Card className="h-[calc(100vh-12rem)] border-border shadow-xl overflow-hidden flex">
-          {/* Sidebar - Conversations List */}
           <div className="w-full sm:w-80 border-r border-border flex flex-col">
-            {/* Search */}
             <div className="p-4 border-b border-border">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
                   type="text"
-                  placeholder="Search messages..."
+                  placeholder="Caută mesaje..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-9 h-10"
@@ -50,7 +47,6 @@ export default function MessagingPage() {
               </div>
             </div>
 
-            {/* Conversations */}
             <ScrollArea className="flex-1">
               <div className="divide-y divide-border">
                 {filteredMessages.map((message) => (
@@ -81,7 +77,7 @@ export default function MessagingPage() {
                           {message.lastMessage}
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          {new Date(message.timestamp).toLocaleTimeString([], {
+                          {new Date(message.timestamp).toLocaleTimeString('ro-RO', {
                             hour: '2-digit',
                             minute: '2-digit'
                           })}
@@ -94,10 +90,8 @@ export default function MessagingPage() {
             </ScrollArea>
           </div>
 
-          {/* Chat Area */}
           {selectedChat ? (
             <div className="flex-1 flex flex-col">
-              {/* Chat Header */}
               <div className="p-4 border-b border-border flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Avatar className="w-10 h-10">
@@ -108,7 +102,7 @@ export default function MessagingPage() {
                     <h2 className="font-heading font-semibold text-foreground">
                       {selectedChat.cleanerName}
                     </h2>
-                    <p className="text-xs text-muted-foreground">Active now</p>
+                    <p className="text-xs text-muted-foreground">Activ acum</p>
                   </div>
                 </div>
                 <Button variant="ghost" size="icon">
@@ -116,7 +110,6 @@ export default function MessagingPage() {
                 </Button>
               </div>
 
-              {/* Messages */}
               <ScrollArea className="flex-1 p-4">
                 <div className="space-y-4">
                   {selectedChat.messages.map((msg, index) => (
@@ -139,7 +132,7 @@ export default function MessagingPage() {
                             msg.sender === 'customer' ? 'text-white/70' : 'text-muted-foreground'
                           }`}
                         >
-                          {new Date(msg.timestamp).toLocaleTimeString([], {
+                          {new Date(msg.timestamp).toLocaleTimeString('ro-RO', {
                             hour: '2-digit',
                             minute: '2-digit'
                           })}
@@ -150,12 +143,11 @@ export default function MessagingPage() {
                 </div>
               </ScrollArea>
 
-              {/* Message Input */}
               <div className="p-4 border-t border-border">
                 <form onSubmit={handleSendMessage} className="flex gap-2">
                   <Input
                     type="text"
-                    placeholder="Type your message..."
+                    placeholder="Scrie mesajul tău..."
                     value={messageText}
                     onChange={(e) => setMessageText(e.target.value)}
                     className="flex-1 h-11"
@@ -173,7 +165,7 @@ export default function MessagingPage() {
           ) : (
             <div className="flex-1 flex items-center justify-center text-muted-foreground">
               <div className="text-center">
-                <p>Select a conversation to start messaging</p>
+                <p>Selectează o conversație pentru a începe mesageria</p>
               </div>
             </div>
           )}
