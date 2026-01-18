@@ -30,25 +30,25 @@ export default function AuthPage() {
     e.preventDefault();
     
     if (isSignUp && !formData.name) {
-      toast.error('Please enter your name');
+      toast.error('Vă rugăm să introduceți numele');
       return;
     }
     
     if (!formData.email || !formData.password) {
-      toast.error('Please fill in all fields');
+      toast.error('Vă rugăm să completați toate câmpurile');
       return;
     }
 
     // Mock authentication
     const userData = {
       id: Math.random().toString(36).substr(2, 9),
-      name: formData.name || 'User',
+      name: formData.name || 'Utilizator',
       email: formData.email,
       role: activeTab,
     };
 
     login(userData);
-    toast.success(isSignUp ? 'Account created successfully!' : 'Welcome back!');
+    toast.success(isSignUp ? 'Cont creat cu succes!' : 'Bine ați revenit!');
     
     // Navigate based on role
     if (activeTab === 'provider') {
@@ -62,13 +62,13 @@ export default function AuthPage() {
     // Mock social login
     const userData = {
       id: Math.random().toString(36).substr(2, 9),
-      name: `${provider} User`,
+      name: `Utilizator ${provider}`,
       email: `user@${provider.toLowerCase()}.com`,
       role: activeTab,
     };
 
     login(userData);
-    toast.success(`Signed in with ${provider}`);
+    toast.success(`Autentificat cu ${provider}`);
     
     if (activeTab === 'provider') {
       navigate('/provider/dashboard');
@@ -91,18 +91,18 @@ export default function AuthPage() {
         <Card className="p-8 border-border shadow-xl">
           <div className="text-center mb-6">
             <h1 className="text-2xl font-heading font-bold text-foreground mb-2">
-              {isSignUp ? 'Create Account' : 'Welcome Back'}
+              {isSignUp ? 'Creează Cont' : 'Bine ai revenit'}
             </h1>
             <p className="text-muted-foreground">
-              {isSignUp ? 'Join our community today' : 'Sign in to your account'}
+              {isSignUp ? 'Alătură-te comunității noastre astăzi' : 'Autentifică-te în contul tău'}
             </p>
           </div>
 
           {/* Role Selection */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-6">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="customer">Customer</TabsTrigger>
-              <TabsTrigger value="provider">Provider</TabsTrigger>
+              <TabsTrigger value="customer">Client</TabsTrigger>
+              <TabsTrigger value="provider">Furnizor</TabsTrigger>
             </TabsList>
           </Tabs>
 
@@ -114,14 +114,14 @@ export default function AuthPage() {
               onClick={() => handleSocialLogin('Google')}
             >
               <Chrome className="w-5 h-5 mr-2" />
-              Continue with Google
+              Continuă cu Google
             </Button>
           </div>
 
           <div className="relative mb-6">
             <Separator />
             <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-sm text-muted-foreground">
-              or
+              sau
             </span>
           </div>
 
@@ -129,14 +129,14 @@ export default function AuthPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {isSignUp && (
               <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
+                <Label htmlFor="name">Nume Complet</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="Ion Popescu"
                     value={formData.name}
                     onChange={handleChange}
                     className="pl-10 h-11"
@@ -153,7 +153,7 @@ export default function AuthPage() {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="exemplu@email.ro"
                   value={formData.email}
                   onChange={handleChange}
                   className="pl-10 h-11"
@@ -162,7 +162,7 @@ export default function AuthPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Parolă</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
@@ -180,7 +180,7 @@ export default function AuthPage() {
             {!isSignUp && (
               <div className="flex items-center justify-end">
                 <a href="#" className="text-sm text-primary hover:underline">
-                  Forgot password?
+                  Ai uitat parola?
                 </a>
               </div>
             )}
@@ -189,27 +189,27 @@ export default function AuthPage() {
               type="submit"
               className="w-full h-11 bg-primary hover:bg-primary-hover text-white"
             >
-              {isSignUp ? 'Create Account' : 'Sign In'}
+              {isSignUp ? 'Creează Cont' : 'Autentificare'}
             </Button>
           </form>
 
           <div className="mt-6 text-center text-sm">
             <span className="text-muted-foreground">
-              {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+              {isSignUp ? 'Ai deja un cont?' : 'Nu ai cont?'}
             </span>
             {' '}
             <button
               onClick={() => setIsSignUp(!isSignUp)}
               className="text-primary font-medium hover:underline"
             >
-              {isSignUp ? 'Sign In' : 'Sign Up'}
+              {isSignUp ? 'Autentifică-te' : 'Înregistrează-te'}
             </button>
           </div>
 
           {activeTab === 'provider' && isSignUp && (
             <div className="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-lg">
               <p className="text-sm text-muted-foreground">
-                As a provider, you'll need to complete verification including a police report check before your profile goes live.
+                Ca furnizor, va trebui să completați procesul de verificare, inclusiv verificarea cazierului judiciar, înainte ca profilul dvs. să fie activ.
               </p>
             </div>
           )}
@@ -217,7 +217,7 @@ export default function AuthPage() {
 
         <div className="mt-6 text-center">
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            ← Back to home
+            ← Înapoi la pagina principală
           </Link>
         </div>
       </div>
