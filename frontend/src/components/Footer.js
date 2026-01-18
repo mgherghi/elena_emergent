@@ -16,32 +16,32 @@ export const Footer = () => {
               <span className="text-xl font-heading font-bold text-foreground">CleanMatch</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Connect with verified cleaning professionals in your area. Quality service, trusted results.
+              Conectează-te cu profesioniști verificați în curățenie din zona ta. Servicii de calitate, rezultate de încredere.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading font-semibold text-foreground mb-4">For Customers</h3>
+            <h3 className="font-heading font-semibold text-foreground mb-4">Pentru Clienți</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/browse" className="text-muted-foreground hover:text-primary transition-colors">
-                  Browse Cleaners
+                  Caută Personal Curățenie
                 </Link>
               </li>
               <li>
                 <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors">
-                  Pricing
+                  Prețuri
                 </Link>
               </li>
               <li>
                 <Link to="/customer/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
-                  My Bookings
+                  Rezervările Mele
                 </Link>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  How It Works
+                  Cum Funcționează
                 </a>
               </li>
             </ul>
@@ -49,26 +49,26 @@ export const Footer = () => {
 
           {/* Providers */}
           <div>
-            <h3 className="font-heading font-semibold text-foreground mb-4">For Providers</h3>
+            <h3 className="font-heading font-semibold text-foreground mb-4">Pentru Furnizori</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/provider/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
-                  Provider Dashboard
+                  Panou Furnizor
                 </Link>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Become a Cleaner
+                  Devino Furnizor
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Verification Process
+                  Proces Verificare
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Resources
+                  Resurse
                 </a>
               </li>
             </ul>
@@ -76,19 +76,19 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading font-semibold text-foreground mb-4">Contact Us</h3>
+            <h3 className="font-heading font-semibold text-foreground mb-4">Contactează-ne</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2 text-muted-foreground">
                 <Mail className="w-4 h-4 mt-0.5 text-primary" />
-                <span>support@cleanmatch.nl</span>
+                <span>support@cleanmatch.ro</span>
               </li>
               <li className="flex items-start space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4 mt-0.5 text-primary" />
-                <span>+31 20 123 4567</span>
+                <span>+40 21 123 4567</span>
               </li>
               <li className="flex items-start space-x-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary" />
-                <span>Amsterdam, Netherlands</span>
+                <span>București, România</span>
               </li>
             </ul>
           </div>
@@ -98,17 +98,17 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} CleanMatch. All rights reserved.
+              © {new Date().getFullYear()} CleanMatch. Toate drepturile rezervate.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                Privacy Policy
+                Politica de Confidențialitate
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
+                Termeni și Condiții
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                Cookie Policy
+                Politica Cookie
               </a>
             </div>
           </div>

@@ -30,12 +30,12 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             <Link to="/browse">
               <Button variant="ghost" className="text-foreground hover:text-primary">
-                Browse Cleaners
+                Caută Personal
               </Button>
             </Link>
             <Link to="/pricing">
               <Button variant="ghost" className="text-foreground hover:text-primary">
-                Pricing
+                Prețuri
               </Button>
             </Link>
             
@@ -43,18 +43,18 @@ export const Navbar = () => {
               <>
                 <Link to={user?.role === 'provider' ? '/provider/dashboard' : '/customer/dashboard'}>
                   <Button variant="ghost" className="text-foreground hover:text-primary">
-                    Dashboard
+                    Panou Control
                   </Button>
                 </Link>
                 <Link to="/messages">
                   <Button variant="ghost" className="text-foreground hover:text-primary">
-                    Messages
+                    Mesaje
                   </Button>
                 </Link>
                 <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-border">
                   {!subscription && (
                     <div className="bg-primary-light text-primary px-3 py-1 rounded-full text-sm font-medium">
-                      {credits} credits
+                      {credits} credite
                     </div>
                   )}
                   {subscription && (
@@ -64,7 +64,7 @@ export const Navbar = () => {
                     </div>
                   )}
                   <Button onClick={handleLogout} variant="outline" size="sm">
-                    Logout
+                    Deconectare
                   </Button>
                 </div>
               </>
@@ -72,12 +72,12 @@ export const Navbar = () => {
               <div className="flex items-center space-x-2 ml-4">
                 <Link to="/auth">
                   <Button variant="ghost" className="text-foreground hover:text-primary">
-                    Sign In
+                    Autentificare
                   </Button>
                 </Link>
                 <Link to="/auth">
                   <Button className="bg-primary hover:bg-primary-hover text-white">
-                    Get Started
+                    Începe Acum
                   </Button>
                 </Link>
               </div>
@@ -100,12 +100,12 @@ export const Navbar = () => {
           <div className="px-4 py-3 space-y-2">
             <Link to="/browse" onClick={() => setIsOpen(false)}>
               <Button variant="ghost" className="w-full justify-start text-foreground">
-                Browse Cleaners
+                Caută Personal
               </Button>
             </Link>
             <Link to="/pricing" onClick={() => setIsOpen(false)}>
               <Button variant="ghost" className="w-full justify-start text-foreground">
-                Pricing
+                Prețuri
               </Button>
             </Link>
             
@@ -113,28 +113,28 @@ export const Navbar = () => {
               <>
                 <Link to={user?.role === 'provider' ? '/provider/dashboard' : '/customer/dashboard'} onClick={() => setIsOpen(false)}>
                   <Button variant="ghost" className="w-full justify-start text-foreground">
-                    Dashboard
+                    Panou Control
                   </Button>
                 </Link>
                 <Link to="/messages" onClick={() => setIsOpen(false)}>
                   <Button variant="ghost" className="w-full justify-start text-foreground">
-                    Messages
+                    Mesaje
                   </Button>
                 </Link>
                 <div className="pt-2 border-t border-border mt-2">
                   {!subscription && (
                     <div className="bg-primary-light text-primary px-3 py-2 rounded-lg text-sm font-medium mb-2">
-                      {credits} credits available
+                      {credits} credite disponibile
                     </div>
                   )}
                   {subscription && (
                     <div className="bg-secondary-light text-secondary px-3 py-2 rounded-lg text-sm font-medium mb-2 flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
-                      Pro Member
+                      Membru Pro
                     </div>
                   )}
                   <Button onClick={handleLogout} variant="outline" className="w-full">
-                    Logout
+                    Deconectare
                   </Button>
                 </div>
               </>
@@ -142,12 +142,12 @@ export const Navbar = () => {
               <div className="space-y-2 pt-2 border-t border-border">
                 <Link to="/auth" onClick={() => setIsOpen(false)}>
                   <Button variant="outline" className="w-full">
-                    Sign In
+                    Autentificare
                   </Button>
                 </Link>
                 <Link to="/auth" onClick={() => setIsOpen(false)}>
                   <Button className="w-full bg-primary hover:bg-primary-hover text-white">
-                    Get Started
+                    Începe Acum
                   </Button>
                 </Link>
               </div>
