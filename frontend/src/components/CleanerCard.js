@@ -17,11 +17,11 @@ export const CleanerCard = ({ cleaner, showContact = false }) => {
         {cleaner.verified && (
           <div className="absolute top-3 right-3 bg-success text-white px-2.5 py-1 rounded-full text-xs font-medium flex items-center gap-1 shadow-lg">
             <Shield className="w-3 h-3" />
-            Verified
+            Verificat
           </div>
         )}
         <div className="absolute top-3 left-3 bg-card/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm font-semibold text-foreground shadow-lg">
-          €{cleaner.hourlyRate}/hr
+          {cleaner.hourlyRate} lei/oră
         </div>
       </div>
 
@@ -42,7 +42,7 @@ export const CleanerCard = ({ cleaner, showContact = false }) => {
               <MapPin className="w-3.5 h-3.5" />
               {cleaner.location}
             </span>
-            <span>{cleaner.reviews} reviews</span>
+            <span>{cleaner.reviews} recenzii</span>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ export const CleanerCard = ({ cleaner, showContact = false }) => {
         <div className="mt-auto">
           <Link to={`/cleaner/${cleaner.id}`} className="block">
             <Button className="w-full bg-primary hover:bg-primary-hover text-white">
-              View Profile
+              Vezi Profilul
             </Button>
           </Link>
         </div>
