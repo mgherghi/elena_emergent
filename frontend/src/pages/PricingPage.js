@@ -15,22 +15,22 @@ export default function PricingPage() {
 
   const handlePurchaseCredits = (amount, credits) => {
     if (!isAuthenticated) {
-      toast.error('Please sign in to purchase credits');
+      toast.error('Vă rugăm să vă autentificați pentru a cumpăra credite');
       navigate('/auth');
       return;
     }
     addCredits(credits);
-    toast.success(`Successfully purchased ${credits} credits!`);
+    toast.success(`Ați cumpărat cu succes ${credits} credite!`);
   };
 
   const handleSubscribe = (plan) => {
     if (!isAuthenticated) {
-      toast.error('Please sign in to subscribe');
+      toast.error('Vă rugăm să vă autentificați pentru a vă abona');
       navigate('/auth');
       return;
     }
     subscribe(plan);
-    toast.success(`Successfully subscribed to ${plan.name}!`);
+    toast.success(`Abonare reușită la ${plan.name}!`);
   };
 
   const creditPackages = [
@@ -43,12 +43,12 @@ export default function PricingPage() {
     {
       name: 'Starter',
       price: 9.99,
-      description: 'For occasional users',
+      description: 'Pentru utilizatori ocazionali',
       features: [
-        '50% discount on credits',
-        '€0.50 per credit instead of €1',
-        'Priority support',
-        'Cancel anytime'
+        '50% reducere la credite',
+        '0.50 lei per credit în loc de 1 leu',
+        'Suport prioritar',
+        'Anulează oricând'
       ],
       icon: Zap,
       color: 'primary'
@@ -56,13 +56,13 @@ export default function PricingPage() {
     {
       name: 'Pro',
       price: 19.99,
-      description: 'For power users',
+      description: 'Pentru utilizatori activi',
       features: [
-        'Unlimited contacts',
-        'Priority messaging (3 credits/msg for free users)',
-        'Featured in search results',
-        'Priority support',
-        'Cancel anytime'
+        'Contacte nelimitate',
+        'Mesaje prioritare (3 credite/mesaj pentru utilizatori gratuit)',
+        'Evidențiat în rezultatele căutării',
+        'Suport prioritar',
+        'Anulează oricând'
       ],
       icon: Crown,
       color: 'secondary',
@@ -74,29 +74,27 @@ export default function PricingPage() {
     <div className="min-h-screen bg-gradient-soft">
       <Navbar />
 
-      {/* Hero */}
       <div className="bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <Badge variant="secondary" className="mb-4">
-            Flexible Pricing
+            Prețuri Flexibile
           </Badge>
           <h1 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-4">
-            Choose Your <span className="text-primary">Perfect Plan</span>
+            Alege <span className="text-primary">Planul Tău Perfect</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Buy credits as you go or subscribe for unlimited access. No hidden fees.
+            Cumpără credite după nevoie sau abonează-te pentru acces nelimitat. Fără taxe ascunse.
           </p>
         </div>
       </div>
 
-      {/* Credit Packages */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
-            Credit Packages
+            Pachete de Credite
           </h2>
           <p className="text-muted-foreground">
-            Purchase credits to contact cleaners. No subscription required.
+            Cumpără credite pentru a contacta profesioniști. Nu este nevoie de abonament.
           </p>
         </div>
 
@@ -111,26 +109,26 @@ export default function PricingPage() {
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge className="bg-primary text-white">
-                    Most Popular
+                    Cel Mai Popular
                   </Badge>
                 </div>
               )}
               <div className="text-center mb-6">
-                <div className="text-4xl font-bold text-foreground mb-2">€{pkg.amount}</div>
-                <div className="text-muted-foreground">{pkg.credits} credits</div>
+                <div className="text-4xl font-bold text-foreground mb-2">{pkg.amount} lei</div>
+                <div className="text-muted-foreground">{pkg.credits} credite</div>
               </div>
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-success" />
-                  <span className="text-muted-foreground">Contact cleaner: 2 credits</span>
+                  <span className="text-muted-foreground">Contactează profesionist: 2 credite</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-success" />
-                  <span className="text-muted-foreground">Priority message: 3 credits</span>
+                  <span className="text-muted-foreground">Mesaj prioritar: 3 credite</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-success" />
-                  <span className="text-muted-foreground">Never expires</span>
+                  <span className="text-muted-foreground">Nu expiră niciodată</span>
                 </div>
               </div>
               <Button
@@ -142,23 +140,22 @@ export default function PricingPage() {
                 }`}
                 variant={pkg.popular ? 'default' : 'outline'}
               >
-                Purchase Now
+                Cumpără Acum
               </Button>
             </Card>
           ))}
         </div>
 
-        {/* Credit Usage Info */}
         <Card className="max-w-3xl mx-auto p-6 bg-muted/30 border-border">
-          <h3 className="font-heading font-semibold text-foreground mb-4">How Credits Work</h3>
+          <h3 className="font-heading font-semibold text-foreground mb-4">Cum Funcționează Creditele</h3>
           <div className="grid sm:grid-cols-2 gap-4 text-sm">
             <div className="flex items-start gap-3">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <span className="font-bold text-primary">2</span>
               </div>
               <div>
-                <div className="font-medium text-foreground mb-1">Reveal Contact Details</div>
-                <div className="text-muted-foreground">Unlock phone number and email address</div>
+                <div className="font-medium text-foreground mb-1">Dezvăluie Detalii Contact</div>
+                <div className="text-muted-foreground">Deblochează număr de telefon și adresă de email</div>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -166,23 +163,22 @@ export default function PricingPage() {
                 <span className="font-bold text-secondary">3</span>
               </div>
               <div>
-                <div className="font-medium text-foreground mb-1">Priority Message</div>
-                <div className="text-muted-foreground">Your message appears at the top of their inbox</div>
+                <div className="font-medium text-foreground mb-1">Mesaj Prioritar</div>
+                <div className="text-muted-foreground">Mesajul tău apare în partea de sus a căsuței lor de mesaje</div>
               </div>
             </div>
           </div>
         </Card>
       </div>
 
-      {/* Subscriptions */}
       <div className="bg-muted/30 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
-              Monthly Subscriptions
+              Abonamente Lunare
             </h2>
             <p className="text-muted-foreground">
-              Unlimited access for power users who need more flexibility
+              Acces nelimitat pentru utilizatorii activi care au nevoie de mai multă flexibilitate
             </p>
           </div>
 
@@ -198,7 +194,7 @@ export default function PricingPage() {
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-1">
                       <Sparkles className="w-3 h-3 mr-1" />
-                      Recommended
+                      Recomandat
                     </Badge>
                   </div>
                 )}
@@ -214,7 +210,7 @@ export default function PricingPage() {
 
                 <div className="mb-6">
                   <div className="text-4xl font-bold text-foreground mb-1">
-                    €{plan.price}<span className="text-lg text-muted-foreground font-normal">/month</span>
+                    {plan.price} lei<span className="text-lg text-muted-foreground font-normal">/lună</span>
                   </div>
                 </div>
 
@@ -236,7 +232,7 @@ export default function PricingPage() {
                   }`}
                   variant={plan.popular ? 'default' : 'outline'}
                 >
-                  Subscribe to {plan.name}
+                  Abonează-te la {plan.name}
                   <ChevronRight className="ml-2 w-5 h-5" />
                 </Button>
               </Card>
@@ -245,31 +241,30 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* FAQ */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
-            Frequently Asked Questions
+            Întrebări Frecvente
           </h2>
         </div>
 
         <div className="space-y-4">
           {[
             {
-              q: 'Do credits expire?',
-              a: 'No! Credits never expire. Use them whenever you need them.'
+              q: 'Creditele expiră?',
+              a: 'Nu! Creditele nu expiră niciodată. Folosește-le oricând ai nevoie.'
             },
             {
-              q: 'Can I cancel my subscription anytime?',
-              a: 'Yes, you can cancel your subscription at any time with no penalties. You\'ll keep access until the end of your billing period.'
+              q: 'Pot anula abonamentul oricând?',
+              a: 'Da, poți anula abonamentul oricând fără penalități. Vei păstra accesul până la sfârșitul perioadei de facturare.'
             },
             {
-              q: 'What happens if I run out of credits?',
-              a: 'You can purchase more credits anytime. Your account remains active, you just won\'t be able to contact new cleaners until you add more credits.'
+              q: 'Ce se întâmplă dacă rămân fără credite?',
+              a: 'Poți cumpăra mai multe credite oricând. Contul tău rămâne activ, doar că nu vei putea contacta profesioniști noi până când adaugi mai multe credite.'
             },
             {
-              q: 'Is my payment information secure?',
-              a: 'Absolutely! We use industry-standard encryption and never store your full payment details.'
+              q: 'Informațiile mele de plată sunt sigure?',
+              a: 'Absolut! Folosim criptare standard din industrie și nu stocăm niciodată detaliile complete de plată.'
             }
           ].map((faq, index) => (
             <Card key={index} className="p-6 border-border">
