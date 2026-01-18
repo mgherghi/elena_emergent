@@ -75,7 +75,7 @@ export default function CleanerProfile() {
       setContactRevealed(true);
       setShowContactDialog(false);
       toast.success('Contact details revealed!');
-    } else if (useCredits(2)) {
+    } else if (spendCredits(2)) {
       setContactRevealed(true);
       setShowContactDialog(false);
       toast.success('Contact details revealed! 2 credits used.');
