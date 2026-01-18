@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     addCredits,
-    useCredits,
+    spendCredits,
     subscribe,
     isAuthenticated: !!user,
     hasSubscription: !!subscription,
